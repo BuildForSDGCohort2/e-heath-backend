@@ -1,0 +1,2 @@
+# e-heath-backend
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1f7bd452080545ceb99479a9a0d40139)](https://app.codacy.com/gh/BuildForSDGCohort2/e-heath-backend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDGCohort2/e-heath-backend&utm_campaign=Badge_Grade_Settings)
