@@ -1,0 +1,7 @@
+{
+    "python.formatting.provider": "black",
+    "cSpell.words": [
+        "testdb"
+    ],
+    "python.pythonPath": "/Users/ao/.local/share/virtualenvs/e-health-backend-TCdLYZQI/bin/python"
+}

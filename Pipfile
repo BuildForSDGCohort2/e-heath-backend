@@ -7,6 +7,16 @@ verify_ssl = true
 
 [packages]
 flask = "*"
+sqlalchemy = "*"
+flask-bcrypt = "*"
+flask-mail = "*"
+flask-login = "*"
+flask-sqlalchemy = "*"
+click = "*"
+pytz = "*"
+flask-migrate = "*"
+psycopg2-binary = "*"
+sqlalchemy-utils = "*"
 
 [requires]
 python_version = "3.7"
