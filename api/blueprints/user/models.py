@@ -1,6 +1,4 @@
 import datetime
-from flask import Flask
-from flask import current_app
 from collections import OrderedDict
 import pytz
 from flask_bcrypt import generate_password_hash, check_password_hash
@@ -48,6 +46,8 @@ class User(UserMixin, ResourceMixin, db.Model):
     last_sign_in_ip = db.Column(db.String(45))
 
     def __init__(self, **kwargs):
+        """ Initialize the model instance giving the parameters
+        """
         # Call Flask-SQLAlchemy's constructor.
         super(User, self).__init__(**kwargs)
 
