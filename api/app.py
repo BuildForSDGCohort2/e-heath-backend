@@ -6,8 +6,6 @@ from api.extentions import migrate
 from api.extentions import mail
 from api.extentions import login_manager
 from api.blueprints.auth import user
-from api.blueprints.user.models import User
-
 
 
 def create_app(settings_override=None):
@@ -27,8 +25,7 @@ def create_app(settings_override=None):
 
 
 def extensions(app):
-    """ Register 0 or more extensions (mutates the app passed in).
-
+    """Register 0 or more extensions (mutates the app passed in).
     :param app: Flask application instance
     :return: None
     """
