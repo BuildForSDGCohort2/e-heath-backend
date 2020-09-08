@@ -46,8 +46,7 @@ class User(UserMixin, ResourceMixin, db.Model):
     last_sign_in_ip = db.Column(db.String(45))
 
     def __init__(self, **kwargs):
-        """ Initialize the model instance giving the parameters
-        """
+        """initialize the model instance giving the parameters"""
         # Call Flask-SQLAlchemy's constructor.
         super(User, self).__init__(**kwargs)
 
@@ -55,8 +54,7 @@ class User(UserMixin, ResourceMixin, db.Model):
         self.password = User.encrypt_password(kwargs.get("password", ""))
 
     def update_activity_tracking(self, ip_address):
-        """
-        Update various fields on the user that's related to meta data on their
+        """Update various fields on the user that's related to meta data on their
         account, such as the sign in count and ip address, etc..
 
         :param ip_address: IP address

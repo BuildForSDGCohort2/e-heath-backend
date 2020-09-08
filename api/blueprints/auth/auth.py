@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request
 from flask import Blueprint
 
 from api.blueprints.user.models import User
