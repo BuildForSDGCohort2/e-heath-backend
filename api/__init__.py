@@ -1,1 +1,1 @@
-"""Api entry point"""
+"""Api entry point."""
