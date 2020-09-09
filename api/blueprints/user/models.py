@@ -46,7 +46,7 @@ class User(UserMixin, ResourceMixin, db.Model):
     last_sign_in_ip = db.Column(db.String(45))
 
     def __init__(self, **kwargs):
-        """initialize the model instance giving the parameters"""
+        """initialize the model instance giving the parameters."""
         # Call Flask-SQLAlchemy's constructor.
         super(User, self).__init__(**kwargs)
 
@@ -73,8 +73,7 @@ class User(UserMixin, ResourceMixin, db.Model):
 
     @classmethod
     def find_by_identity(cls, identity):
-        """
-        Find a user by their e-mail or username.
+        """Find a user by their e-mail or username.
 
         :param identity: Email or username
         :type identity: str

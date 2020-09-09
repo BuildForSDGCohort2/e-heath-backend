@@ -1,5 +1,10 @@
-from flask import request
+from flask import request, flash
 from flask import Blueprint
+from flask_login import (
+    login_required,
+    login_user,
+    current_user,
+    logout_user)
 
 from api.blueprints.user.models import User
 
@@ -7,7 +12,6 @@ user = Blueprint("user", __name__)
 
 
 @user.route("/login", methods=["GET", "POST"])
-# @anonymous_required()
 def login():
     body = request.get_json(force=True)
     usr = User.find_by_identity(identity=body.get("email"))
@@ -17,20 +21,17 @@ def login():
     else:
         return {"error": "Email or password invalid"}, 401
 
+@user.route('/signup', methods=['GET', 'POST'])
+def signup():
+    body = request.get_json(force=True)
+    user = User(**body)
+    user.encrypt_password(body.get("password"))
+    user.save()
+    id = user.id
+    return {'id': str(id)}, 200
 
-# @user.route('/login', methods=['GET', 'POST']) # HTTP request methods namely "GET" or "POST"
-# def login():
-#     data = []
-#     if request.method == 'POST': # Checks if it's a POST request
-#         data = [dict(email=request.get_json()['email'], password='')] # Data structure of JSON format
-
-#         response = jsonify(data) # Converts your data strcuture into JSON format
-#         response.status_code = 202 # Provides a response status code of 202 which is "Accepted"
-
-#         return response # Returns the HTTP response
-#     else:
-#         data = [dict(id='none', name='none', enmail='none')] # Data structure of JSON format
-#         response = jsonify(data) # Converts your data strcuture into JSON format
-#         response.status_code = 406 # Provides a response status code of 406 which is "Not Acceptable"
-
-#         return response # Returns the HTTP response
+@user.route('/logout') 
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.', 'success')

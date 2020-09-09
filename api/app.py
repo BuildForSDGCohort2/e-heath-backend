@@ -25,7 +25,7 @@ def create_app(settings_override=None):
 
 
 def extensions(app):
-    """Register 0 or more extensions (mutates the app passed in).
+    """Register one or more extensions (mutates the app passed in).
     :param app: Flask application instance
     :return: None
     """
